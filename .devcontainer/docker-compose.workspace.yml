@@ -1,0 +1,14 @@
+version: "2.4"
+services:
+  workspace:
+    image: alpine:3.14
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./../src:/home/vscode/workspaces/public_data
+      - ~/.zshrc:/home/vscode/.zshrc
+      - ~/.oh-my-zsh/:/home/vscode/.oh-my-zsh/
+      - ~/.zsh_history:/home/vscode/.zsh_history
+    depends_on:
+      - python
+    tty: true           # <- keeps container running
+    stdin_open: true
